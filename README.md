@@ -13,8 +13,8 @@ Usage
 ```
 import ImportAgilentBin as IAB
 
-time_vector, voltage_vector = importAgilentBin('test.bin'[, num_of_channel])
-desc = importAgilentBinDesc('test.bin')
+time_vector, voltage_vector = IAB.importAgilentBin('test.bin'[, num_of_channel])
+desc = IAB.importAgilentBinDesc('test.bin')
 ```
 
 ### Aknowledgments
