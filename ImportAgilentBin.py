@@ -18,7 +18,7 @@ def importAgilentBin(file_path, *vargs):
     if not os.path.isfile(file_path):
         print('Input filename missing')
         f.close()
-        return None
+        return [], []
     f = open(file_path, 'rb')
     
     # Read header of the file
@@ -31,7 +31,7 @@ def importAgilentBin(file_path, *vargs):
     if file_cookie != 'AG':
         print('Unrecognised file format')
         f.close()
-        return None
+        return [], []
 
     # Determine which waveform to read
     waveform_index = 0
@@ -98,19 +98,15 @@ def importAgilentBin(file_path, *vargs):
 
 
 def importAgilentBinDesc(file_path):
-    # Import data from a binary file from 1st channel
-    # time_vector, voltage_vector = importAgilentBin(file_path)
-    #
-    # Import data from a binary file from any channel
-    # time_vector, voltage_vector = importAgilentBin(file_path, channel)
-    #
-    # In case of errors function will return two empty lists
+    # Import description data from a binary file
+    # desc = importAgilentBin(file_path)
+    # In case of errors function will return an empty list
 
     # Check if file doesn't exist
     if not os.path.isfile(file_path):
         print('Input filename missing')
         f.close()
-        return None
+        return []
     f = open(file_path, 'rb')
     
     # Read header of the file
@@ -123,7 +119,7 @@ def importAgilentBinDesc(file_path):
     if file_cookie != 'AG':
         print('Unrecognised file format')
         f.close()
-        return None
+        return []
 
     # Prepare output variables
     desc = []
